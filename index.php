@@ -113,7 +113,11 @@ function editarProducto()
     <header class="bg-dark text-white p-3 shadow">
         <div class="container-fluid d-flex justify-content-between align-items-center">
 
-            <h1 class="h3 m-0">Panel de Productos</h1>
+            <h1 class="h3 m-0">
+                <a class="navbar-brand fw-bold" href="./detalles.php">
+                    💨 V4p3ando Bella Vista
+                </a>
+            </h1>
 
             <form class="d-flex w-50">
                 <input
@@ -183,8 +187,8 @@ function editarProducto()
                         </div>
 
                         <div class="card-body d-grid gap-2">
-                            <?php 
-                                $categorias = select("SELECT * FROM categorias");
+                            <?php
+                            $categorias = select("SELECT * FROM categorias");
                             ?>
                             <a
                                 class="btn" style="background-color:#EDECEC"
