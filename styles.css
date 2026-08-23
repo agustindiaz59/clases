@@ -1,0 +1,56 @@
+body{
+    background-color: #fafafa;
+}
+  .wsp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+.banner{
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+  
+  .banner h1 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  .banner p {
+    font-size: 20px;
+  }
+
+  .banner .btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+  }
+
+  .btn {
+    transition: .3s ease;
+  }
+
+  .btn:hover {
+    transform: scale(1.08);
+  }
+
+  .row {
+    transition: .3s ease;
+  }
+
+  .row:hover {
+    transform: translateY(-5px);
+  }
+
+  .producto {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  .img-fluid {
+    border-radius: 15px;
+  }
