@@ -33,16 +33,33 @@
 
         <ul class="navbar-nav ms-auto">
 
-          <li class="nav-item">
+          <li class="nav-item text-white">
             <a class="nav-link active" href="./detalles.php">Inicio</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#productos">Productos</a>
+            <a class="nav-link text-white" href="#productos">Productos</a>
+          </li>
+
+          <!-- Example single danger button -->
+          <li class="nav-item btn-group">
+            <button type="button" class="btn dropdown-toggle text-white" style="border: none;" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorías
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Todas las categorías</a></li>
+              <li><a class="dropdown-item" href="#">Vapers</a></li>
+              <li><a class="dropdown-item" href="#">Accesorios</a></li>
+              <li><a class="dropdown-item" href="#">Cargadores</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#contacto">Contacto</a>
+            <a class="nav-link text-white" href="#contacto">Contacto</a>
           </li>
 
         </ul>
@@ -92,22 +109,7 @@
     </div>
   </section>
 
-  <!-- Example single danger button -->
-  <div class="btn-group">
-    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Categorías
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Todas las categorías</a></li>
-      <li><a class="dropdown-item" href="#">Vapers</a></li>
-      <li><a class="dropdown-item" href="#">Accesorios</a></li>
-      <li><a class="dropdown-item" href="#">Cargadores</a></li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div>
+  
 
   <div class="container my-5">
     <div id="carouselExampleIndicators"
