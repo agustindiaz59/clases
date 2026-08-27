@@ -128,6 +128,7 @@ function editarProducto()
                     Buscar
                 </button>
             </form>
+            
 
         </div>
     </header>

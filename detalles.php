@@ -81,6 +81,15 @@
           </svg>
         </a>
 
+        <!-- CARRITO -->
+        <a
+          href="./carrito.php"
+          class="btn btn-primary position-relative ms-2">
+
+          🛒
+
+        </a>
+
       </div>
 
     </div>
@@ -109,7 +118,7 @@
     </div>
   </section>
 
-  
+
 
   <div class="container my-5">
     <div id="carouselExampleIndicators"
