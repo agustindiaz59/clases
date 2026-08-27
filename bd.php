@@ -1,9 +1,9 @@
 <?php
 
   $host = "localhost";
-  $user = "clases";
-  $pass = "clases";
-  $dbname = "punto_de_venta";
+  $user = "root";
+  $pass = "";
+  $dbname = "sistema_stock_ventas";
 
   // Create connection using MySQLi
   $conn = new mysqli($host, $user, $pass, $dbname);

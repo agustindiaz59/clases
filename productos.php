@@ -2,102 +2,11 @@
 
 include_once("bd.php");
 
-$productosbd = select("SELECT * FROM producto");
+$productosbd = select("SELECT * FROM productos");
 
 
 
-$productos = [
-    [
-        'id' => 1,
-        'nombre' => 'Vaper Lost Angel Pro Max',
-        'descripcion' => 'Vaper descartable de excelente rendimiento.',
-        'precio' => 30000,
-        'precio_anterior' => 35000,
-        'descuento' => 14,
-        'imagen' => 'assets/Lost-Angel-Pro-Max-20K-430x347.webp',
-        'categoria' => 'Vapers',
-        'marca' => 'Lost Angel',
-        'stock' => 8,
-        'rating' => 4.8,
-        'ventas' => 120
-    ],
-
-    [
-        'id' => 2,
-        'nombre' => 'Vaper ELFBAR',
-        'descripcion' => 'Vaper descartable ELFBAR.',
-        'precio' => 35000,
-        'precio_anterior' => null,
-        'descuento' => null,
-        'imagen' => 'assets/fdfdfd-a152ce99787386b96717445239911455-1024-1024.webp',
-        'categoria' => 'Vapers',
-        'marca' => 'ELFBAR',
-        'stock' => 12,
-        'rating' => 4.7,
-        'ventas' => 95
-    ],
-
-    [
-        'id' => 3,
-        'nombre' => 'ELFBAR Ice King 40000',
-        'descripcion' => 'Modelo Ice King 40000.',
-        'precio' => 35000,
-        'precio_anterior' => 39000,
-        'descuento' => 10,
-        'imagen' => 'assets/elfbar-ice-king-40000-grape-ice-409c0b70d9771963c217629021601273-640-0.webp',
-        'categoria' => 'Vapers',
-        'marca' => 'ELFBAR',
-        'stock' => 5,
-        'rating' => 4.9,
-        'ventas' => 150
-    ],
-
-    [
-        'id' => 4,
-        'nombre' => 'Vaper ELFBAR',
-        'descripcion' => 'Modelo descartable ELFBAR.',
-        'precio' => 40000,
-        'precio_anterior' => null,
-        'descuento' => null,
-        'imagen' => 'assets/vapers.webp',
-        'categoria' => 'Vapers',
-        'marca' => 'ELFBAR',
-        'stock' => 3,
-        'rating' => 4.6,
-        'ventas' => 70
-    ],
-
-    [
-        'id' => 5,
-        'nombre' => 'Accesorio para Vaper',
-        'descripcion' => 'Accesorio para complementar tu equipo.',
-        'precio' => 12000,
-        'precio_anterior' => 15000,
-        'descuento' => 20,
-        'imagen' => 'assets/vapers.webp',
-        'categoria' => 'Accesorios',
-        'marca' => 'Genérico',
-        'stock' => 20,
-        'rating' => 4.5,
-        'ventas' => 42
-    ],
-
-    [
-        'id' => 6,
-        'nombre' => 'Cargador USB',
-        'descripcion' => 'Cargador compatible con distintos dispositivos.',
-        'precio' => 10000,
-        'precio_anterior' => null,
-        'descuento' => null,
-        'imagen' => 'assets/vapers.webp',
-        'categoria' => 'Cargadores',
-        'marca' => 'Genérico',
-        'stock' => 15,
-        'rating' => 4.4,
-        'ventas' => 35
-    ]
-];
-
+$productos = select("SELECT * FROM productos");
 $totalProductos = count($productos);
 
 ?>
@@ -715,21 +624,10 @@ $totalProductos = count($productos);
 
                             <div class="producto-card shadow-sm position-relative">
 
-
-                                <?php if ($producto['descuento']): ?>
-
-                                    <span
-                                        class="badge bg-danger badge-oferta">
-                                        OFERTA
-                                    </span>
-
-                                <?php endif; ?>
-
-
                                 <!-- IMAGEN -->
 
                                 <img
-                                    src="<?= htmlspecialchars($producto['imagen']) ?>"
+                                    src="<?= htmlspecialchars($producto['foto_url']) ?>"
                                     class="producto-imagen"
                                     alt="<?= htmlspecialchars($producto['nombre']) ?>">
 
@@ -753,33 +651,15 @@ $totalProductos = count($productos);
                                     </div>
 
 
-                                    <!-- RATING -->
-
-                                    <div class="rating mt-2">
-
-                                        ★ <?= $producto['rating'] ?>
-
-                                        <span class="text-muted">
-                                            (<?= $producto['ventas'] ?>)
-                                        </span>
-
-                                    </div>
-
-
                                     <!-- PRECIO -->
 
                                     <div class="mt-2">
 
-                                        <?php if ($producto['precio_anterior']): ?>
+                                        <?php if ($producto['precio']): ?>
 
                                             <div class="precio-anterior">
 
-                                                $<?= number_format(
-                                                        $producto['precio_anterior'],
-                                                        0,
-                                                        ',',
-                                                        '.'
-                                                    ) ?>
+                                                $<?= $producto['precio'] ?>
 
                                             </div>
 
@@ -788,25 +668,12 @@ $totalProductos = count($productos);
 
                                         <span class="producto-precio">
 
-                                            $<?= number_format(
-                                                    $producto['precio'],
-                                                    0,
-                                                    ',',
-                                                    '.'
-                                                ) ?>
+                                            $<?=
+                                                $producto['precio']
+
+                                                ?>
 
                                         </span>
-
-
-                                        <?php if ($producto['descuento']): ?>
-
-                                            <span class="descuento ms-1">
-
-                                                <?= $producto['descuento'] ?>% OFF
-
-                                            </span>
-
-                                        <?php endif; ?>
 
                                     </div>
 
@@ -819,20 +686,12 @@ $totalProductos = count($productos);
 
                                     </div>
 
-
-                                    <div class="small text-muted mt-1">
-
-                                        <?= $producto['stock'] ?> unidades disponibles
-
-                                    </div>
-
-
                                     <!-- BOTONES -->
 
                                     <div class="mt-3">
 
                                         <a
-                                            href="./producto.php?id=<?= $producto['id'] ?>"
+                                            href="./producto.php?id=<?= $producto['id_producto'] ?>"
                                             class="btn btn-outline-primary w-100 mb-2">
                                             Ver producto
                                         </a>
@@ -840,7 +699,7 @@ $totalProductos = count($productos);
 
                                         <button
                                             class="btn btn-primary btn-carrito"
-                                            onclick="agregarCarrito(<?= $producto['id'] ?>)">
+                                            onclick="agregarCarrito(<?= $producto['id_producto'] ?>)">
 
                                             🛒 Agregar al carrito
 

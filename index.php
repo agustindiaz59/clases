@@ -18,13 +18,13 @@ if (empty($_SESSION["usuarioBD"])) {
 
 
 //Verifico que acciones quiero realizar
-if ($_POST["nombre_eliminar"]) {
+if (!empty($_POST["nombre_eliminar"])) {
     eliminarProducto();
 };
-if ($_POST["nombre"]) {
+if (!empty($_POST["nombre"])) {
     crearProducto();
 };
-if ($_POST["EDITAR"]) {
+if (!empty($_POST["EDITAR"])) {
     editarProducto();
 }
 
@@ -33,7 +33,7 @@ if ($_POST["EDITAR"]) {
 //Definicion de las funciones
 function eliminarProducto()
 {
-    statement("DELETE FROM producto WHERE nombre = '" . $_POST["nombre_eliminar"] . "';");
+    statement("DELETE FROM productos WHERE nombre = '" . $_POST["nombre_eliminar"] . "';");
 }
 
 function crearProducto()
@@ -50,7 +50,7 @@ function crearProducto()
     $url_foto = $_POST["url_foto"];
 
     statement("
-    INSERT INTO producto (nombre, precio, descripcion, sabor, sku, foto_url)
+    INSERT INTO productos (nombre, precio, descripcion, sabor, sku, foto_url)
     VALUES (
     '" . $nombre . "',
     " . $precio . ",
@@ -79,7 +79,7 @@ function editarProducto()
     $url_foto = $_POST["url_foto"];
 
     statement("
-    UPDATE producto 
+    UPDATE productos 
     SET 
     precio = " . $precio . ",
     descripcion =  '" . $descripcion . "',
@@ -170,7 +170,7 @@ function editarProducto()
                                 Eliminar producto
                             </button>
 
-                            <a class="btn" style="background-color:#DD3027">
+                            <a href="./logout.php" class="btn" style="background-color:#DD3027">
                                 Cerrar sesion
                             </a>
 
@@ -189,7 +189,7 @@ function editarProducto()
 
                         <div class="card-body d-grid gap-2">
                             <?php
-                            $categorias = select("SELECT * FROM categorias");
+                         //   $categorias = select("SELECT * FROM //categorias");
                             ?>
                             <a
                                 class="btn" style="background-color:#EDECEC"
@@ -223,7 +223,7 @@ function editarProducto()
 
                     <!-- PRODUCTO -->
                     <?php
-                    $resultado = select("SELECT * FROM producto;");
+                    $resultado = select("SELECT * FROM productos;");
 
                     for ($i = 0; $i < count($resultado); $i++) {
                         echo '
