@@ -9,6 +9,32 @@ $productosbd = select("SELECT * FROM productos");
 $productos = select("SELECT * FROM productos");
 $totalProductos = count($productos);
 
+//var_dump($_POST['nombre']);
+if (!empty($_POST['nombre']))
+{
+    $productos = select("SELECT * FROM productos WHERE productos.nombre = '".$_POST['nombre']."' ");
+    if ($productos) {
+        $totalProductos = count($productos);
+    } else {
+        $productos = [];
+        $totalProductos = 0;
+    }
+    $totalProductos = count($productos);
+}
+
+var_dump($_POST['categoria']);
+if (!empty($_POST['categoria']))
+{
+    $productos = select("SELECT * FROM productos WHERE productos.categoria = '".$_POST['categoria']."' ");
+    if ($productos) {
+        $totalProductos = count($productos);
+    } else {
+        $productos = [];
+        $totalProductos = 0;
+    }
+    $totalProductos = count($productos);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -226,29 +252,33 @@ $totalProductos = count($productos);
 
                         <ul class="dropdown-menu">
 
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Todas
-                                </a>
-                            </li>
+                        <form action="./productos.php" method="POST">
+                            <input name="categoria" type="hidden" value="*">
+                            <button type="submit" class="dropdown-item" >
+                                Todas   
+                            </button>
+                        </form>
 
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Vapers
-                                </a>
-                            </li>
+                            <form action="./productos.php" method="POST">
+                            <input name="categoria" type="hidden" value="vaper">
+                            <button type="submit" class="dropdown-item" >
+                                Vapers   
+                            </button>
+                        </form>
 
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Accesorios
-                                </a>
-                            </li>
+                            <form action="./productos.php" method="POST">
+                            <input name="categoria" type="hidden" value="Accesorios">
+                            <button type="submit" class="dropdown-item" >
+                                Accesorios   
+                            </button>
+                        </form>
 
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Cargadores
-                                </a>
-                            </li>
+                            <form action="./productos.php" method="POST">
+                            <input name="categoria" type="hidden" value="Cargadores">
+                            <button type="submit" class="dropdown-item" >
+                                Cargadores   
+                            </button>
+                        </form>
 
                         </ul>
 
@@ -272,13 +302,13 @@ $totalProductos = count($productos);
 
                 <form
                     class="d-flex ms-3"
-                    action="productos.php"
-                    method="GET">
+                    action="./productos.php"
+                    method="POST">
 
                     <input
                         class="form-control me-2"
                         type="search"
-                        name="buscar"
+                        name="nombre"
                         placeholder="Buscar...">
 
                     <button class="btn btn-primary">
@@ -617,7 +647,7 @@ $totalProductos = count($productos);
 
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
 
-
+                    <?php if ($totalProductos > 0 ): ?>
                     <?php foreach ($productos as $producto): ?>
 
                         <div class="col">
@@ -714,7 +744,19 @@ $totalProductos = count($productos);
                         </div>
 
                     <?php endforeach; ?>
+                    <?php else: ?>
+                        
+                        <div class="col">
 
+                            <div class="alert alert-warning">
+
+                                No se encontraron productos
+                                que coincidan con la búsqueda.
+
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
 
                 </div>
 

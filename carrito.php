@@ -435,16 +435,8 @@ $total = $subtotal;
                             </div>
 
 
-                            <button
-                                class="btn btn-primary btn-lg w-100 mb-2">
-
-                                💳 Finalizar compra
-
-                            </button>
-
-
                             <a
-                                href="https://wa.me/543815846507"
+                                href="https://wa.me/543815846507?text=hola%20me%20interesa%20el%20producto%20<?= urlencode($carrito[0]['nombre']) ?>"
                                 target="_blank"
                                 class="btn btn-success btn-lg w-100">
 

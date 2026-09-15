@@ -170,16 +170,21 @@
     <div class="row text-center">
 
       <div class="col-md-6">
-        <div class="marca">
-          <img src="assets/elfbar-ice-king-40000-grape-ice-409c0b70d9771963c217629021601273-640-0.webp" class="img-fluid" width="180">
-          <h4 class="mt-3">ELFBAR</h4>
-        </div>
+        <form action="./productos.php" method="POST">
+          <input type="hidden" name="nombre" value="Vaper 7">
+          <button class="marca" type="submit">
+            <img src="assets/elfbar-ice-king-40000-grape-ice-409c0b70d9771963c217629021601273-640-0.webp" class="img-fluid" width="180">
+            <h4 class="mt-3">ELFBAR</h4>
+
+
+          </button>
+        </form>
       </div>
 
       <div class="col-md-6">
         <div class="marca">
           <img src="assets/Lost-Angel-Pro-Max-20K-430x347.webp" class="img-fluid" width="180">
-          <h4 class="mt-3">LOST ANGEL</h4>
+          <h4 name="nombre" value="LOST ANGEL" class="mt-3">LOST ANGEL</h4>
         </div>
       </div>
 
